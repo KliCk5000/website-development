@@ -1,0 +1,81 @@
+/* Header */
+header {
+    float: left;
+    background: #6ab47b;
+    border-color: #599a68;
+    border-bottom: 5px solid #599a68;
+    margin-bottom: 20px;
+    margin: 0 0 30px 0;
+    padding: 5px 0 0 0;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+#title {
+    background: none;
+    float: none;
+    text-align: center;
+}
+h1 {
+    display: block;
+    font-size: 2.5em;
+    color: #fff;
+    font-family: 'Changa One', sans-serif;
+    margin: 15px 0;
+    font-weight: normal;
+    line-height: 0.8em;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+h2 {
+    font-size: 0.825em;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-weight: normal;
+    text-align: left;
+}
+
+body {
+    margin: 0;
+    cursor: default;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */ 
+}
+
+/* Game Div */
+#gameViewPort {
+    float:left;
+    margin: 75px;
+    background-color: #09b6e8;
+}
+
+.tileClass {
+ float: left;
+ width: 50px;
+ height: 50px;
+ text-align: center;
+ line-height: 50px;
+ background-color: green;
+ color: blue;
+ border: 2px groove black;
+}
+
+/* Footer */
+footer, h3 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+}

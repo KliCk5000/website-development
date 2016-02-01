@@ -1,0 +1,214 @@
+<html>
+    <head>
+        <title>First Lesson</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            font-size: 2em;
+        }
+        
+        a:link {
+            color: #1aff1a;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #1aff1a;
+        }
+        a:hover {
+            color: red;
+        }
+        
+        .oddTile {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .evenTile {
+            background-color: #fff;
+        }
+        
+        .tileSize {
+            float: left;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #mainViewPort{
+            cursor: default;
+            padding: 20px;
+        	width: fit-content;
+        	width: -moz-fit-content;
+        	border-radius: 10px;
+        	-webkit-user-select: none;  /* Chrome all / Safari all */
+            -moz-user-select: none;     /* Firefox all */
+            -ms-user-select: none;      /* IE 10+ */
+            user-select: none;          /* Likely future */ 
+        }
+        /* http://www.colorzilla.com/gradient-editor */
+        .backGradient {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcecfc+0,fba6e1+60,fd89d7+81,ff7cd8+100 */
+            background: #fcecfc; /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZWNmYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iI2ZiYTZlMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgxJSIgc3RvcC1jb2xvcj0iI2ZkODlkNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjdjZDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 60%, #fd89d7 81%, #ff7cd8 100%); /* FF3.6-15 */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcecfc), color-stop(60%,#fba6e1), color-stop(81%,#fd89d7), color-stop(100%,#ff7cd8)); /* Chrome4-9,Safari4-5 */
+            background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 60%,#fd89d7 81%,#ff7cd8 100%); /* Chrome10-25,Safari5.1-6 */
+            background: -o-linear-gradient(top,  #fcecfc 0%,#fba6e1 60%,#fd89d7 81%,#ff7cd8 100%); /* Opera 11.10-11.50 */
+            background: -ms-linear-gradient(top,  #fcecfc 0%,#fba6e1 60%,#fd89d7 81%,#ff7cd8 100%); /* IE10 preview */
+            background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 60%,#fd89d7 81%,#ff7cd8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-8 */
+        }
+        
+        /* http://css3generator.com/ */
+        .backShadow{
+            -moz-box-shadow: 0 10px 2px 2px #D4D4D4;
+            -webkit-box-shadow: 0 10px 2px 2px #D4D4D4;
+            box-shadow: 0 10px 2px 2px #D4D4D4;
+        }
+
+        .tileMenu{
+            position: absolute;
+            z-index: 100;
+            width: 100px;
+            font-size: 14px;
+            color: #000;
+            min-height: 50px;
+            background-color: #816230;
+        }
+    </style>
+</head>
+    <body>
+        <div id="mainViewPort" class="backGradient backShadow">
+            
+        </div>
+        
+        <div style="clear: both;"></div>
+        
+        <script type="text/javascript">
+        window.selectedTile = null;
+        var tableView = document.getElementById("mainViewPort");
+        
+        tableView.addEventListener("click", onClickScript, false);
+        // Target ID would be:
+        // <div class="oddTile tileSize" id="tile_12">X</div>
+        function onClickScript(event) {
+            // Todo: Put function:
+            // Check for document action CLICK and determine if the element is part of the tileSize class
+            // If it is part of the tileSize class ALERT() the coordinates x, y
+            var tileID = event.target.id;
+            // tileID right now should say something like "tile_25"
+            
+            // something happens here
+            var tileClassCheck = hasClassName("tileSize",tileID);
+
+            //////////////////////////////////// tileID.className == "tileSize"
+            if (window.selectedTile == tileID && tileClassCheck == true) {
+                // There is already a Menu Open since we know that it's the same tileID
+                // CLOSE THE MENU
+                
+                window.selectedTile = null;
+                
+                removeTileMenu(event);
+                
+            } else if(tileClassCheck == true){
+                // We can attempt to remove any div here because there's a div somewhere else
+                
+                // First let's remove any existing tile menu
+                removeTileMenu(event);
+                
+                // Now let's tell the global variable selectedTile that it is now tileID
+                window.selectedTile = tileID;
+                
+                // Now we just need to append it to the selected tile
+                var cacheContent = event.target.innerHTML;
+                var newMenu = "<div class='tileMenu'><div>Coordinate: "+tileID+"</div><div>Menu Option1</div></div>";
+                event.target.innerHTML =  cacheContent + newMenu;
+                
+                // Done
+            }
+            
+            /*      The following uses Regex to fetch the id # from the id that contains
+                    mixed numbers and letters ie: tile_58
+                    
+            
+                    tileID = tileID.match(/\d/g); // This is called a Regex
+                    tileID = tileID.join("");
+            
+                    We don't really need this right now however
+                    because we already know that we're in the cell
+                    from the event
+                    
+            */
+        }
+        
+        // First set defines the variables up until the first semicolon
+        // Then we see if both X and Y are less than 11, if it's greater than it will break the loop
+        // don't forget the semicolon at the end
+        var x; var y; var gridPattern; var newTile;
+        for(x = 1, y = 1, gridPattern = false; x < 12, y < 11;){
+            // Assign IDs to each tile
+            //newTile.element.id = "tile_" + x + y;
+            
+            // This piece here alternates between black and white tiles
+            
+            // START
+            if(gridPattern == false){
+                newTile = '<div id="tile_'+x+y+'" class="oddTile tileSize">X</div>';
+                gridPattern = true;
+            } else {
+                newTile = '<div id="tile_'+x+y+'" class="evenTile tileSize">O</div>';
+                gridPattern = false;
+            }
+            // END ALTERNATING TILES
+            
+            //
+            if(x == 11 && y != 10){
+                // ADD A NEW ROW (Because Y is not == 10)
+                
+                // APPENDS
+                var currentTile = document.getElementById("mainViewPort").innerHTML;
+                // "Clear: Both" makes it so that it pushes the next div element to a new line.
+                document.getElementById("mainViewPort").innerHTML = currentTile + "<div style='clear:both;'></div>";
+                x = 1; y++; // We now reset x to 1 because we are on a new Row. We also add +1 to y because it's a new row.
+            } else if(x == 11 && y == 10){ //Are you at the end of the grid?
+                x++; y++; //makes X and Y 11 so that the for loop ends
+               var currentTile = document.getElementById("mainViewPort").innerHTML;
+                // "Clear: Both" makes it so that it pushes the next div element to a new line.
+                document.getElementById("mainViewPort").innerHTML = currentTile + "<div style='clear:both;'></div>";
+            } else {
+                // Append a new Tile on the X-Column until it reaches the end.
+                var currentTile = document.getElementById("mainViewPort").innerHTML;
+                document.getElementById("mainViewPort").innerHTML = currentTile + newTile;
+                x++;
+            }
+        } 
+        
+        function removeTileMenu(event){
+            [].forEach.call(document.querySelectorAll('.tileMenu'),function(event){
+                event.parentNode.removeChild(event);
+            });
+        }
+        
+        function hasClassName(classname,id) {
+             return  String ( ( document.getElementById(id)||{} ) .className )
+                     .split(/\s/)
+                     .indexOf(classname) >= 0;
+            }
+        
+        // We need to assign each TILE with a unique ID
+        // The unique ID will be tile_xy because later we will parse the id and just get the the last part of the id after tile_
+        // Tile 1,1 will be tile_11 but tile 2,1 will be tile_2,1
+        
+        // HOMEWORK ASSIGNMENT:
+        // SET EACH tile with a unique id of ("tile_"+x+y")
+        // Check for document action CLICK and determine if the element is part of the tileSize class
+        // If it is part of the tileSize class ALERT() the coordinates x, y
+        
+        
+        </script>
+    </body> 
+</html>
